@@ -1,0 +1,30 @@
+import pandas as pd
+
+def calcular_comissao():
+    clientes = []
+    notas = []
+    valores = []
+    comissoes = []
+    datas = []
+    while True:
+        cliente = input('Nome do cliente: ')
+        if cliente == 'parar':
+            break
+        clientes.append(cliente)
+        nota = int(input('Número da nota: '))
+        notas.append(nota)
+        valor = float(input('Valor da nota: '))
+        valores.append(valor)
+        comissao = round((valor-(valor*0.3))*0.01,2)
+        comissoes.append(comissao)
+        data = input('Digite a data: ')
+        datas.append(data)
+        df = pd.DataFrame()
+        df['Cliente'] = clientes
+        df['Nota'] = notas
+        df['Valor'] = valores
+        df['Comissão'] = comissoes
+        df['Data'] = datas
+    return df
+
+df = calcular_comissao()
